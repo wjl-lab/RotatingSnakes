@@ -4,10 +4,10 @@
 
 
 #define WIDTH 1200
-#define HEIGHT 800//³õÊ¼»­²¼¿í¸ß
-#define DIS 20//Á½¸öÔ²µÄ¾àÀë
+#define HEIGHT 800//åˆå§‹ç”»å¸ƒå®½é«˜
+#define DIS 20//ä¸¤ä¸ªåœ†çš„è·ç¦»
 
-#define PI 3.14159
+#define PI 3.141
 
 int main()
 {
@@ -15,71 +15,60 @@ int main()
 	setbkcolor(RGB(135, 127, 108));
 	cleardevice();
 
-	//¶¨ÒåÔ²µÄÔ²ĞÄ
-	int RADIUS = 180;//Ô²°ë¾¶
+	//å®šä¹‰åœ†çš„åœ†å¿ƒ
+	int RADIUS = 180;//åœ†åŠå¾„
 	int centerX = DIS + RADIUS;
 	int centerY = DIS + RADIUS;
 
 
-	//»­ÉÈĞÎ 
-	for (centerX = 200; centerX < 1200; centerX = centerX + 400)
+	//ç”»æ‰‡å½¢
+	while (1)
 	{
-		for (centerY = 200; centerY < 800; centerY = centerY + 400)
+		for (centerX = 200; centerX < 1200; centerX = centerX + 400)
 		{
-			int i;
-			float offset;
-			float totaloffset = 0;
-			
-			for (RADIUS = 200; RADIUS > 0; RADIUS = RADIUS - 50)
+			for (centerY = 200; centerY < 800; centerY = centerY + 400)
 			{
-				int left = centerX - RADIUS;
-				int right = centerX + RADIUS;
-				int top = centerY - RADIUS;
-				int bottom = centerY + RADIUS;
+				int i;
+				float offset;
+				float totaloffset = 0;
+				COLORREF color1 = HSVtoRGB(0, 0, 0.00);
+				COLORREF color2 = HSVtoRGB(0, 0, 0.10);
+				COLORREF color3 = HSVtoRGB(0, 0, 0.20);
+				COLORREF color4 = HSVtoRGB(0, 0, 0.30);
+				COLORREF color5 = HSVtoRGB(0, 0, 0.40);
+				COLORREF color6 = HSVtoRGB(0, 0, 0.50);
+				COLORREF color7 = HSVtoRGB(0, 0, 0.60);
+				COLORREF color8 = HSVtoRGB(0, 0, 0.70);
+				COLORREF color9 = HSVtoRGB(0, 0, 0.80);
+				COLORREF color10 = HSVtoRGB(0, 0, 0.90);
 
-				COLORREF color1 = HSVtoRGB(0, 0, 0.0);
-				COLORREF color2 = HSVtoRGB(0, 0, 0.1);
-				COLORREF color3 = HSVtoRGB(0, 0, 0.2);
-				COLORREF color4 = HSVtoRGB(0, 0, 0.3);
-				COLORREF color5 = HSVtoRGB(0, 0, 0.4);
-				COLORREF color6 = HSVtoRGB(0, 0, 0.5);
-				COLORREF color7 = HSVtoRGB(0, 0, 0.6);
-				COLORREF color8 = HSVtoRGB(0, 0, 0.7);
-				COLORREF color9 = HSVtoRGB(0, 0, 0.8);
-				COLORREF color10 = HSVtoRGB(0, 0, 0.9);
-				
-
-				for (i = 0; i < 36; i++)
+				for (RADIUS = 180; RADIUS > 0; RADIUS = RADIUS - 20)
 				{
-					offset = i * PI / 18 + totaloffset;
-					setfillcolor(color1);
-					solidpie(left, top, right, bottom, offset, 1 * PI / 180 + offset);
-					setfillcolor(color2);
-					solidpie(left, top, right, bottom, 1 * PI / 180 + offset, 2 * PI / 180 + offset);
-					setfillcolor(color3);
-					solidpie(left, top, right, bottom, 2 * PI / 180 + offset, 3 * PI / 180 + offset);
-					setfillcolor(color4);
-					solidpie(left, top, right, bottom, 3 * PI / 180 + offset, 4 * PI / 180 + offset);
-					setfillcolor(color5);
-					solidpie(left, top, right, bottom, 4 * PI / 180 + offset, 5 * PI / 180 + offset);
-					setfillcolor(color6);
-					solidpie(left, top, right, bottom, 5 * PI / 180 + offset, 6 * PI / 180 + offset);
-					setfillcolor(color7);
-					solidpie(left, top, right, bottom, 6 * PI / 180 + offset, 7 * PI / 180 + offset);
-					setfillcolor(color8);
-					solidpie(left, top, right, bottom, 7 * PI / 180 + offset, 8 * PI / 180 + offset);
-					setfillcolor(color9);
-					solidpie(left, top, right, bottom, 8 * PI / 180 + offset, 9 * PI / 180 + offset);
-					setfillcolor(color10);
-					solidpie(left, top, right, bottom, 9 * PI / 180 + offset, 10 * PI / 180 + offset);
+					int left = centerX - RADIUS;
+					int right = centerX + RADIUS;
+					int top = centerY - RADIUS;
+					int bottom = centerY + RADIUS;
+
+					for (i = 0; i < 20; i++)
+					{
+						offset = i * PI / 10 + totaloffset;
+						setfillcolor(color1);
+						solidpie(left, top, right, bottom, offset, 2 * PI / 60 + offset);
+						setfillcolor(color3);
+						solidpie(left, top, right, bottom, 2 * PI / 60 + offset, 3 * PI / 60 + offset);
+						setfillcolor(color5);
+						solidpie(left, top, right, bottom, 3 * PI / 60 + offset, 4 * PI / 60 + offset);
+						setfillcolor(color7);
+						solidpie(left, top, right, bottom, 4 * PI / 60 + offset, 5 * PI / 60 + offset);
+						setfillcolor(color9);
+						solidpie(left, top, right, bottom, 5 * PI / 60 + offset, 6 * PI / 60 + offset);
+					}
+					totaloffset = totaloffset + PI / 20;
 				}
-				totaloffset = offset + PI / 36;
 			}
-
-
 		}
+		_getch();
 	}
 	
-	_getch();
 	return 0;
 }
