@@ -28,6 +28,7 @@ int main()
 		{
 			int i;
 			float offset;
+			float totaloffset = 0;
 			
 			for (RADIUS = 200; RADIUS > 0; RADIUS = RADIUS - 50)
 			{
@@ -36,17 +37,43 @@ int main()
 				int top = centerY - RADIUS;
 				int bottom = centerY + RADIUS;
 
+				COLORREF color1 = HSVtoRGB(0, 0, 0.0);
+				COLORREF color2 = HSVtoRGB(0, 0, 0.1);
+				COLORREF color3 = HSVtoRGB(0, 0, 0.2);
+				COLORREF color4 = HSVtoRGB(0, 0, 0.3);
+				COLORREF color5 = HSVtoRGB(0, 0, 0.4);
+				COLORREF color6 = HSVtoRGB(0, 0, 0.5);
+				COLORREF color7 = HSVtoRGB(0, 0, 0.6);
+				COLORREF color8 = HSVtoRGB(0, 0, 0.7);
+				COLORREF color9 = HSVtoRGB(0, 0, 0.8);
+				COLORREF color10 = HSVtoRGB(0, 0, 0.9);
+				
+
 				for (i = 0; i < 36; i++)
 				{
-					offset = i * PI / 18;
-					setfillcolor(RGB(255, 255, 0));
-					solidpie(left, top, right, bottom, offset, 1 * PI / 54 + offset);
-					setfillcolor(RGB(0, 0, 255));
-					solidpie(left, top, right, bottom, 1 * PI / 54 + offset, 2 * PI / 54 + offset);
-					setfillcolor(RGB(0, 255, 0));
-					solidpie(left, top, right, bottom, 2 * PI / 54 + offset, 3 * PI / 54 + offset);
+					offset = i * PI / 18 + totaloffset;
+					setfillcolor(color1);
+					solidpie(left, top, right, bottom, offset, 1 * PI / 180 + offset);
+					setfillcolor(color2);
+					solidpie(left, top, right, bottom, 1 * PI / 180 + offset, 2 * PI / 180 + offset);
+					setfillcolor(color3);
+					solidpie(left, top, right, bottom, 2 * PI / 180 + offset, 3 * PI / 180 + offset);
+					setfillcolor(color4);
+					solidpie(left, top, right, bottom, 3 * PI / 180 + offset, 4 * PI / 180 + offset);
+					setfillcolor(color5);
+					solidpie(left, top, right, bottom, 4 * PI / 180 + offset, 5 * PI / 180 + offset);
+					setfillcolor(color6);
+					solidpie(left, top, right, bottom, 5 * PI / 180 + offset, 6 * PI / 180 + offset);
+					setfillcolor(color7);
+					solidpie(left, top, right, bottom, 6 * PI / 180 + offset, 7 * PI / 180 + offset);
+					setfillcolor(color8);
+					solidpie(left, top, right, bottom, 7 * PI / 180 + offset, 8 * PI / 180 + offset);
+					setfillcolor(color9);
+					solidpie(left, top, right, bottom, 8 * PI / 180 + offset, 9 * PI / 180 + offset);
+					setfillcolor(color10);
+					solidpie(left, top, right, bottom, 9 * PI / 180 + offset, 10 * PI / 180 + offset);
 				}
-				
+				totaloffset = offset + PI / 36;
 			}
 
 
